@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.king636'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        multiDexEnabled true
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName "$rootProject.versionName"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-v13:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+
+    //retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-jackson:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3InterceptorVersion"
+    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
+    compile "io.reactivex:rxjava:$rootProject.rxjava2Version"
+
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    compile "org.greenrobot:eventbus:$rootProject.eventbusVersion"
+    compile "com.readystatesoftware.systembartint:systembartint:$rootProject.systembartint"
+    compile "com.jaeger.statusbaruitl:library:$rootProject.statusbaruitl"
+    compile "com.github.Aspsine:SwipeToLoadLayout:$rootProject.SwipeToLoadLayout"
+    compile "com.lsjwzh:materialloadingprogressbar:$rootProject.materialloadingprogressbar"
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.BaseRecyclerViewAdapterHelper"
+    compile "com.afollestad.material-dialogs:core:$rootProject.materialdialogscore"
+    compile "com.baoyz.actionsheet:library:$rootProject.actionsheetLibrary"
+    compile "cn.qqtheme.framework:WheelPicker:$rootProject.WheelPicker"
+    compile "com.orhanobut:logger:$rootProject.loggerVersion"
+    compile "com.zcw:togglebutton-library:$rootProject.togglebuttonLibrary"
+    compile "com.yanzhenjie:recyclerview-swipe:$rootProject.recyclerviewSwipe"
+    compile "me.iwf.photopicker:PhotoPicker:$rootProject.PhotoPicker"
+    compile "q.rorbin:badgeview:$rootProject.badgeview"
+    compile "com.contrarywind:Android-PickerView:$rootProject.AndroidPickerView"
+    compile "me.relex:circleindicator:$rootProject.circleindicator"
+    compile "com.github.chrisbanes.photoview:library:$rootProject.photoviewLibrary"
+    compile "com.github.douglasjunior:android-simple-tooltip:$rootProject.androidSimpleTooltip"
+    compile "com.github.zcweng:switch-button:$rootProject.sbVersion"
+    compile "com.github.lzyzsd:jsbridge:$rootProject.jsbridge"
+    compile "de.halfbit:pinned-section-listview:$rootProject.pinnedSectionListview"
+    compile "com.zaihuishou:expandablerecycleradapter:$rootProject.expandablerecycleradapter"
+    compile "com.bm.photoview:library:$rootProject.bmphotoviewLibrary"
+    compile "com.zhy:flowlayout-lib:$rootProject.flowlayout"
+
+    implementation "com.jakewharton:butterknife:$rootProject.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
+}
